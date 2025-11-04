@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirza Rafiqul Hasan | Blockchain Developer</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/zH0cmJ4S/mirzalogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --sky-blue-light: #b3d9ff;
+      --sky-blue-dark: #80bfff;
+      --blockscout-color: #5453D3;
+      --blockscout-light: #6c6bd9;
+      --blockscout-dark: #3d3cb0;
+      --card-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --text-dark: #2d2d4a;
+      --text-light: #f8f9fa;
+      --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--sky-blue-light), var(--sky-blue-dark));
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: var(--text-dark);
+      padding: 20px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(180, 217, 255, 0.3) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 850px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 1.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      z-index: -1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-section {
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blockscout-color), var(--blockscout-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: var(--blockscout-dark);
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    .tagline-line {
+      display: block;
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--blockscout-color);
+      border-right: 3px solid var(--blockscout-color);
+    }
+
+    .tagline-line:first-child {
+      margin-top: 5px;
+    }
+
+    .tagline-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    a.button {
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: var(--transition);
+      color: var(--blockscout-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    a.button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.5s;
+    }
+
+    a.button:hover::before {
+      left: 100%;
+    }
+
+    a.button:hover {
+      background: var(--blockscout-color);
+      color: white;
+      box-shadow: 0 8px 20px rgba(84, 83, 211, 0.4);
+      transform: translateY(-3px);
+    }
+
+    a.button i {
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin: 30px 0 20px;
+      font-weight: 600;
+      color: var(--blockscout-color);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: var(--blockscout-color);
+      border-radius: 2px;
+    }
+
+    .references {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .ref-card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: var(--transition);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .ref-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .ref-card a {
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--blockscout-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .ref-card a:hover {
+      color: var(--blockscout-dark);
+    }
+
+    .ref-card i {
+      font-size: 1.2rem;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      opacity: 0.7;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--blockscout-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(84, 83, 211, 0.4);
+      transition: transform 0.4s ease;
+      z-index: 1000;
+      font-weight: 500;
+    }
+
+    .notification.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Desktop Styles (default) */
+    @media (min-width: 1025px) {
+      .tagline-line {
+        font-size: 1.15rem;
+        padding: 10px 25px;
+      }
+    }
+
+    /* Tablet Styles */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .container {
+        max-width: 750px;
+        padding: 35px 25px;
+      }
+      
+      h1 { 
+        font-size: 2.2rem; 
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .tagline-line {
+        font-size: 1.1rem;
+        padding: 9px 22px;
+      }
+      
+      .buttons {
+        gap: 10px;
+      }
+      
+      a.button {
+        padding: 11px 22px;
+      }
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+        max-width: 95%;
+      }
+      
+      h1 { 
+        font-size: 2rem; 
+      }
+      
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+      
+      .tagline-line {
+        font-size: 1rem;
+        padding: 8px 18px;
+      }
+      
+      .buttons {
+        gap: 10px;
+      }
+      
+      a.button {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      
+      .references {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+      }
+    }
+
+    /* Small Mobile Styles */
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 15px;
+      }
+      
+      h1 { 
+        font-size: 1.8rem; 
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      .tagline-line {
+        font-size: 0.95rem;
+        padding: 7px 15px;
+        line-height: 1.4;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      a.button {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .references {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      
+      .ref-card {
+        padding: 15px 10px;
+        min-height: 90px;
+      }
+      
+      .ref-card a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-section">
+      <h1 id="typed-name">MIRZA RAFIQUL HASAN</h1>
+      <h2>Blockchain Developer</h2>
+      <div class="tagline">
+        <span class="tagline-line">Member of Blockscout & MIRZA Development Team</span>
+        <span class="tagline-line">Building the future of Decentralized Ecosystems</span>
+      </div>
+    </div>
+
+    <!-- Contact buttons -->
+    <div class="buttons">
+      <a href="https://wa.me/8801999201865" target="_blank" class="button">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="mailto:rafiqblockscout@gmail.com" class="button">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+      <a id="copyEmail" class="button">
+        <i class="fas fa-copy"></i> Copy Mail
+      </a>
+      <a href="https://github.com/coderRF" target="_blank" class="button">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+
+    <!-- Project buttons -->
+    <div class="buttons">
+      <a href="https://www.blockscout.com" target="_blank" class="button">
+        <i class="fas fa-external-link-alt"></i> Visit Blockscout
+      </a>
+      <a href="https://coderrf.github.io/MIRZA-SBT/" target="_blank" class="button">
+        <i class="fas fa-rocket"></i> Get MIRZA SBT
+      </a>
+    </div>
+
+    <!-- Blockchain references -->
+    <h3 class="section-title">Blockchain Ecosystems</h3>
+    <div class="references">
+      <div class="ref-card">
+        <a href="https://ethereum.org" target="_blank">
+          <i class="fab fa-ethereum"></i> Ethereum
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://www.bnbchain.org" target="_blank">
+          <i class="fas fa-coins"></i> BNB Chain
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://bitcoin.org" target="_blank">
+          <i class="fab fa-bitcoin"></i> Bitcoin
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://polkadot.network" target="_blank">
+          <i class="fas fa-circle"></i> Polkadot
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://solana.com" target="_blank">
+          <i class="fas fa-bolt"></i> Solana
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://avax.network" target="_blank">
+          <i class="fas fa-mountain"></i> Avalanche
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://cardano.org" target="_blank">
+          <i class="fas fa-layer-group"></i> Cardano
+        </a>
+      </div>
+      <div class="ref-card">
+        <a href="https://cosmos.network" target="_blank">
+          <i class="fas fa-atom"></i> Cosmos
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2023 Mirza Rafiqul Hasan. All rights reserved.</p>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">Email copied to clipboard!</div>
+
+  <script>
+    // Typing animation for name
+    const h1 = document.getElementById('typed-name');
+    const text = h1.textContent;
+    h1.textContent = '';
+    let i = 0;
+    
+    function type() {
+      if (i < text.length) {
+        h1.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 90);
+      }
+    }
+    
+    // Start typing animation after page load
+    window.addEventListener('load', type);
+    
+    // Copy email functionality
+    document.getElementById('copyEmail').addEventListener('click', () => {
+      navigator.clipboard.writeText('rafiqblockscout@gmail.com');
+      
+      // Show notification
+      const notification = document.getElementById('notification');
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    });
+    
+    // Add subtle hover effect to container
+    const container = document.querySelector('.container');
+    container.addEventListener('mousemove', (e) => {
+      const { left, top, width, height } = container.getBoundingClientRect();
+      const x = (e.clientX - left) / width - 0.5;
+      const y = (e.clientY - top) / height - 0.5;
+      
+      container.style.transform = `perspective(1000px) rotateY(${x * 2}deg) rotateX(${-y * 2}deg)`;
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      container.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+    });
+  </script>
+</body>
+</html>
