@@ -11,16 +11,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --sky-blue-light: #b3d9ff;
-      --sky-blue-dark: #80bfff;
-      --blockscout-color: #5453D3;
-      --blockscout-light: #6c6bd9;
-      --blockscout-dark: #3d3cb0;
-      --card-bg: rgba(255, 255, 255, 0.15);
-      --glass-border: rgba(255, 255, 255, 0.25);
-      --text-dark: #2d2d4a;
-      --text-light: #f8f9fa;
-      --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      --deep-blue: #0a1931;
+      --navy-blue: #1a2b4a;
+      --electric-blue: #00a8ff;
+      --bright-cyan: #00f5ff;
+      --neon-green: #00ff9d;
+      --violet: #9d4edd;
+      --card-bg: rgba(26, 43, 74, 0.7);
+      --glass-border: rgba(0, 168, 255, 0.3);
+      --text-bright: #ffffff;
+      --text-cyan: #00f5ff;
+      --text-green: #00ff9d;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -32,7 +34,7 @@
     }
 
     body {
-      background: linear-gradient(135deg, var(--sky-blue-light), var(--sky-blue-dark));
+      background: linear-gradient(135deg, var(--deep-blue), var(--navy-blue));
       overflow-x: hidden;
       min-height: 100vh;
       display: flex;
@@ -40,7 +42,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      color: var(--text-dark);
+      color: var(--text-bright);
       padding: 20px;
     }
 
@@ -52,9 +54,9 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(180, 217, 255, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(0, 168, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(157, 78, 221, 0.1) 0%, transparent 50%);
       z-index: -1;
     }
 
@@ -81,7 +83,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      background: radial-gradient(circle, rgba(0, 168, 255, 0.1) 0%, rgba(0, 168, 255, 0) 70%);
       z-index: -1;
     }
 
@@ -94,14 +96,48 @@
       margin-bottom: 30px;
     }
 
+    .logo-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 8px;
+    }
+
+    .rounded-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 168, 255, 0.5);
+      border: 3px solid var(--electric-blue);
+      animation: pulse 2s infinite;
+    }
+
+    .rounded-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 168, 255, 0.5); }
+      50% { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0, 245, 255, 0.7); }
+      100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 168, 255, 0.5); }
+    }
+
     h1 {
       font-size: 2.4rem;
-      margin-bottom: 8px;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--blockscout-color), var(--blockscout-dark));
+      background: linear-gradient(135deg, var(--text-cyan), var(--text-green));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
     }
 
     h2 {
@@ -109,14 +145,15 @@
       letter-spacing: 1px;
       margin-bottom: 15px;
       font-weight: 700;
-      color: var(--blockscout-dark);
+      color: var(--text-cyan);
       text-transform: uppercase;
+      text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
     }
 
     .tagline {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--text-bright);
       margin-bottom: 25px;
       max-width: 600px;
       margin-left: auto;
@@ -127,11 +164,12 @@
     .tagline-line {
       display: block;
       padding: 8px 20px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 168, 255, 0.2);
       border-radius: 8px;
       margin-bottom: 8px;
-      border-left: 3px solid var(--blockscout-color);
-      border-right: 3px solid var(--blockscout-color);
+      border-left: 3px solid var(--electric-blue);
+      border-right: 3px solid var(--electric-blue);
+      text-shadow: 0 0 5px rgba(0, 168, 255, 0.3);
     }
 
     .tagline-line:first-child {
@@ -159,11 +197,11 @@
       gap: 8px;
       padding: 12px 24px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(0, 168, 255, 0.2);
+      border: 1px solid rgba(0, 168, 255, 0.4);
       transition: var(--transition);
-      color: var(--blockscout-color);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      color: var(--text-cyan);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
     }
@@ -175,7 +213,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
       transition: left 0.5s;
     }
 
@@ -184,9 +222,9 @@
     }
 
     a.button:hover {
-      background: var(--blockscout-color);
-      color: white;
-      box-shadow: 0 8px 20px rgba(84, 83, 211, 0.4);
+      background: var(--electric-blue);
+      color: var(--deep-blue);
+      box-shadow: 0 8px 20px rgba(0, 168, 255, 0.6);
       transform: translateY(-3px);
     }
 
@@ -198,9 +236,10 @@
       font-size: 1.3rem;
       margin: 30px 0 20px;
       font-weight: 600;
-      color: var(--blockscout-color);
+      color: var(--text-green);
       position: relative;
       display: inline-block;
+      text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
     }
 
     .section-title::after {
@@ -211,8 +250,9 @@
       transform: translateX(-50%);
       width: 50px;
       height: 3px;
-      background: var(--blockscout-color);
+      background: var(--text-green);
       border-radius: 2px;
+      box-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
     }
 
     .references {
@@ -223,10 +263,10 @@
     }
 
     .ref-card {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(0, 168, 255, 0.15);
       padding: 20px 15px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(0, 168, 255, 0.3);
       transition: var(--transition);
       text-align: center;
       display: flex;
@@ -234,20 +274,21 @@
       align-items: center;
       justify-content: center;
       min-height: 100px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .ref-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 25px rgba(0, 168, 255, 0.3);
+      background: rgba(0, 168, 255, 0.25);
+      border: 1px solid var(--bright-cyan);
     }
 
     .ref-card a {
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: var(--blockscout-color);
+      color: var(--text-bright);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -255,18 +296,20 @@
     }
 
     .ref-card a:hover {
-      color: var(--blockscout-dark);
+      color: var(--text-cyan);
+      text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
     }
 
     .ref-card i {
       font-size: 1.2rem;
+      color: var(--text-green);
     }
 
     .footer {
       margin-top: 30px;
       font-size: 0.9rem;
-      color: var(--text-dark);
-      opacity: 0.7;
+      color: var(--text-cyan);
+      opacity: 0.8;
     }
 
     .notification {
@@ -274,11 +317,11 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: var(--blockscout-color);
-      color: white;
+      background: var(--electric-blue);
+      color: var(--deep-blue);
       padding: 12px 24px;
       border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(84, 83, 211, 0.4);
+      box-shadow: 0 5px 15px rgba(0, 168, 255, 0.6);
       transition: transform 0.4s ease;
       z-index: 1000;
       font-weight: 500;
@@ -332,6 +375,16 @@
         max-width: 95%;
       }
       
+      .logo-title-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .rounded-logo {
+        width: 60px;
+        height: 60px;
+      }
+      
       h1 { 
         font-size: 2rem; 
       }
@@ -365,6 +418,11 @@
     @media (max-width: 480px) {
       .container {
         padding: 25px 15px;
+      }
+      
+      .rounded-logo {
+        width: 55px;
+        height: 55px;
       }
       
       h1 { 
@@ -410,7 +468,12 @@
 <body>
   <div class="container">
     <div class="profile-section">
-      <h1 id="typed-name">MIRZA RAFIQUL HASAN</h1>
+      <div class="logo-title-container">
+        <div class="rounded-logo">
+          <img src="https://i.ibb.co/zH0cmJ4S/mirzalogo.png" alt="Mirza Logo">
+        </div>
+        <h1 id="typed-name">MIRZA RAFIQUL HASAN</h1>
+      </div>
       <h2>Blockchain Developer</h2>
       <div class="tagline">
         <span class="tagline-line">Member of Blockscout & MIRZA Development Team</span>
@@ -423,7 +486,7 @@
       <a href="https://wa.me/8801999201865" target="_blank" class="button">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
-      <a href="mailto:rafiqblockscout@gmail.com" class="button">
+      <a href="mailto:mirzarafihasan@gmail.com" class="button">
         <i class="fas fa-envelope"></i> Email Me
       </a>
       <a id="copyEmail" class="button">
@@ -516,7 +579,7 @@
     
     // Copy email functionality
     document.getElementById('copyEmail').addEventListener('click', () => {
-      navigator.clipboard.writeText('rafiqblockscout@gmail.com');
+      navigator.clipboard.writeText('mirzarafihasan@gmail.com');
       
       // Show notification
       const notification = document.getElementById('notification');
@@ -542,5 +605,4 @@
     });
   </script>
 </body>
-
 </html>
